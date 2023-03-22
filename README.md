@@ -19,3 +19,22 @@ The hexadecimal values ✻✶ and ✻✷ become the characters ❛ and ❜ when 
 ❛❛❜❛❛❜❛❛. However for the purposes of this assignment the conversion from bytes
 to text is out of scope and irrelevant, we will effectively be dealing with binary
 data only.
+
+
+
+Input of the Program
+On input, the program will receive, on standard input, an encoded data stream.
+There are no restrictions on the length of input data; indeed, it can be unbounded.
+
+
+
+Output of the Program
+The program should write:
+• To standard output, the decoded binary data. If any invalid or incomplete
+pair is found, the byte ✸❋ should be output in its place.
+• To standard error, the result of re-encoding the decoded data produced in
+the above step. Write two implementations, a trivial one that always uses
+pi = 0 and a better one that produces an output as short as you can manage.The program should default to the latter and only switch to the first one if
+the environment variable ❯❙❊❴❚❘■❱■❆▲❴■▼P▲❊▼❊◆❚❆❚■❖◆ has value ✶.
+It is left undefined how much data the program should buffer before decoding
+or re-encoding data.
