@@ -1,0 +1,28 @@
+Decoding Program Documentation
+This program is designed to decode an input stream of compressed binary data using a specific decoding algorithm, and write the decoded binary data to standard output. It also writes the result of re-encoding the decoded data to standard error.
+
+Installation
+No installation is required to use this program. It can be run directly from the command line.
+
+Usage
+To use the program, simply run the decoder.py script with the input data stream piped to it through standard input. For example:
+$ cat input_data.txt | python decoder.py
+
+By default, the program uses the better decoding algorithm that produces the shortest output possible. However, you can switch to the trivial implementation by setting the environment variable USE_TRIVIAL_IMPLEMENTATION to 1. For example:
+$ USE_TRIVIAL_IMPLEMENTATION=1 cat input_data.txt | python decoder.py
+
+Decoding Algorithm
+The decoding algorithm used in this program is an implementation of a (non-injective) function that takes a sequence C, back to its decoded form s.
+
+Starting with an empty result bytestring, the program reads the encoded pair sequence (with length n) from the left to the right. For each pair read, if p, append q to the output stream. Otherwise, the program reads the last p characters appended to the result string and takes the first (from the left) q characters.
+
+
+Input Data Format
+The input data stream should be in the compressed data bytestream representation format, where each pair is represented, in order, as a sequence of two unsigned bytes. There should be no padding between the pairs.
+
+
+Output Data Format
+The program outputs the decoded binary data to standard output, as well as the result of re-encoding the decoded data to standard error. If any invalid or incomplete pair is found during decoding, the byte 3F is output in its place. The output data is effectively binary data, as text interpretation is out of scope for this program.
+
+Testing
+The program comes with a suite of unit tests that can be run using the pytest framework. To run the tests, simply execute pytest in the root directory of the program.
