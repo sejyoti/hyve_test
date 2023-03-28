@@ -1,0 +1,4 @@
+data_str = '61 00 01 00 62 00 02 03 03 00'
+data_bytes = bytes.fromhex(data_str.replace(' ', ''))
+with open('encoded_data.bin', 'wb') as f:
+    f.write(data_bytes)
